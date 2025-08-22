@@ -24,31 +24,31 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RestController
 @Slf4j
 public class UserController {
-    
+
     @Autowired
-     private  UserService userService;
+    private UserService userService;
 
     public UserController(UserService userService) {
         this.userService = userService;
     }
 
-     @RequestMapping(value = "/profile", method = RequestMethod.GET)
+    @RequestMapping(value = "/profile", method = RequestMethod.GET)
     public ResponseEntity<User> authenticatedUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        
-        
+
         //log.info(" authentication {}", authentication);
         System.out.println("authentication");
+        System.out.println(" xxx- authentication");
+         System.out.println(" xxx - authentication");
 
         User currentUser = (User) authentication.getPrincipal();
-        
 
         return ResponseEntity.ok(currentUser);
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ResponseEntity<List<User>> allUsers() {
-        List <User> users = userService.allUsers();
+        List<User> users = userService.allUsers();
 
         return ResponseEntity.ok(users);
     }
