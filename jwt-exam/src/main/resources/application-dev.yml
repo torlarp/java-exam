@@ -1,0 +1,19 @@
+server:
+    port: 8080
+logging:
+  level:
+    org:
+      springframework: INFO
+    com:
+      zaxxer:
+        hikari:
+          HikariConfig: DEBUG 
+spring:
+    datasource.url: jdbc:mysql://localhost:3306/exam?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false
+    datasource.username: root
+    datasource.password: Preeyanart@2520
+
+## Hibernate properties
+    jpa:
+        hibernate.ddl-auto: update
+        open-in-view: false
